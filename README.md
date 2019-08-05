@@ -66,11 +66,11 @@ If no filters are specified then it will default to calling all 3 weather servic
 
 #### Example Requests
 
-**GET:** http://127.0.0.1:8080/temp?latitude=40.3&longitude=20.2
-**GET:** http://127.0.0.1:8080/temp?zip_code=78757
-**GET:** http://127.0.0.1:8080/temp?zip_code=78757&filters=weatherdotcom&filters=noaa
-**GET:** http://127.0.0.1:8080/temp?latitude=40.3&longitude=20.2&filters=accuweather&filters=noaa
-**GET:** http://127.0.0.1:8080/temp?latitude=40.3&longitude=20.2&filters=noaa
+**GET:** http://127.0.0.1:8080/temp?latitude=40.3&longitude=20.2  
+**GET:** http://127.0.0.1:8080/temp?zip_code=78757  
+**GET:** http://127.0.0.1:8080/temp?zip_code=78757&filters=weatherdotcom&filters=noaa   
+**GET:** http://127.0.0.1:8080/temp?latitude=40.3&longitude=20.2&filters=accuweather&filters=noaa  
+**GET:** http://127.0.0.1:8080/temp?latitude=40.3&longitude=20.2&filters=noaa  
 
 ### Run Tests Stand Alone
 
