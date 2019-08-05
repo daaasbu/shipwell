@@ -1,0 +1,40 @@
+version: '3'
+services:
+  maps-service:
+    build:
+      context: ./maps-service
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8080"    
+    restart: unless-stopped
+    environment:
+      MAPS_KEY: "${MAPS_KEY}"
+
+  weather-service:
+    build:
+      context: ./weather-service
+      dockerfile: Dockerfile
+    restart: unless-stopped  
+    ports:
+      - "8001:8080"   
+
+  temperature-service:
+    build:
+      context: ./temperature-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    environment:
+      WEATHER_SERVICE_URL: weather-service:8080  
+      MAPS_SERVICE_URL: maps-service:8080
+  tests:
+    build:
+      context: ./tests
+      dockerfile: Dockerfile
+    environment:
+      TEMPERATURE_SERVICE_URL: temperature-service:8080  
+    depends_on: 
+      - weather-service
+      - temperature-service
+      - maps-service
